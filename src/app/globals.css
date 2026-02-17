@@ -1,26 +1,287 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+
+    /* Graphite - 배경, 텍스트, 보더 */
+    --color-graphite-50: #f2f3f2;
+    --color-graphite-100: #e4e7e6;
+    --color-graphite-200: #cacecc;
+    --color-graphite-300: #afb6b3;
+    --color-graphite-400: #959d99;
+    --color-graphite-500: #7a8580;
+    --color-graphite-600: #626a66;
+    --color-graphite-700: #49504d;
+    --color-graphite-800: #313533;
+    --color-graphite-900: #181b1a;
+    --color-graphite-950: #111312;
+
+    /* Celadon - CTA, 활성 상태, 액센트 */
+    --color-celadon-50: #ebf9ec;
+    --color-celadon-100: #d8f3d9;
+    --color-celadon-200: #b0e8b3;
+    --color-celadon-300: #89dc8d;
+    --color-celadon-400: #62d067;
+    --color-celadon-500: #3bc442;
+    --color-celadon-600: #2f9d34;
+    --color-celadon-700: #237627;
+
+    /* Fern - 카테고리 배지 */
+    --color-fern-50: #f0f5f1;
+    --color-fern-100: #e1eae2;
+    --color-fern-200: #c2d6c6;
+    --color-fern-300: #a4c1a9;
+    --color-fern-400: #86ac8d;
+    --color-fern-500: #679870;
+    --color-fern-600: #53795a;
+    --color-fern-700: #3e5b43;
+    --color-fern-800: #293d2d;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --radius-2xl: calc(var(--radius) + 8px);
+    --radius-3xl: calc(var(--radius) + 12px);
+    --radius-4xl: calc(var(--radius) + 16px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+    --radius: 0.625rem;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.646 0.222 41.116);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.398 0.07 227.392);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.488 0.243 264.376);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.769 0.188 70.08);
+    --chart-4: oklch(0.627 0.265 303.9);
+    --chart-5: oklch(0.645 0.246 16.439);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+    body {
+        @apply bg-graphite-50 text-graphite-900;
+    }
+    .dark body {
+        @apply bg-graphite-950 text-graphite-50;
+    }
+}
+
+/* 마크다운 본문 스타일 */
+@layer components {
+    .prose-custom {
+        @apply text-graphite-700 dark:text-graphite-200 leading-relaxed;
+    }
+    .prose-custom h1 {
+        @apply text-3xl font-bold text-graphite-900 dark:text-graphite-50 mt-10 mb-4;
+    }
+    .prose-custom h2 {
+        @apply text-2xl font-semibold text-graphite-900 dark:text-graphite-50 mt-8 mb-3 pt-6 border-t border-graphite-200 dark:border-graphite-700;
+    }
+    .prose-custom h3 {
+        @apply text-xl font-semibold text-graphite-800 dark:text-graphite-100 mt-6 mb-2;
+    }
+    .prose-custom p {
+        @apply mb-4;
+    }
+    .prose-custom ul {
+        @apply pl-6 mb-4;
+        list-style: disc;
+    }
+    .prose-custom ol {
+        @apply pl-6 mb-4;
+        list-style: decimal;
+    }
+    .prose-custom li {
+        @apply mb-2;
+    }
+    .prose-custom blockquote {
+        @apply border-l-4 border-celadon-500 pl-4 text-graphite-500 dark:text-graphite-400 italic my-4;
+    }
+    .prose-custom code:not(pre code) {
+        @apply text-sm text-celadon-400 bg-graphite-100 dark:bg-graphite-800 rounded px-1.5 py-0.5 font-mono;
+    }
+    .prose-custom pre {
+        @apply bg-graphite-100 dark:bg-graphite-800 rounded-lg p-4 overflow-x-auto my-4;
+    }
+    .prose-custom pre code {
+        @apply text-sm text-graphite-700 dark:text-graphite-200 font-mono;
+    }
+    .prose-custom pre code.hljs {
+        @apply bg-transparent p-0;
+    }
+    .prose-custom a {
+        @apply text-celadon-400 underline hover:text-celadon-300;
+    }
+    .prose-custom strong {
+        @apply text-graphite-900 dark:text-graphite-50 font-semibold;
+    }
+    .prose-custom hr {
+        @apply border-graphite-200 dark:border-graphite-700 my-8;
+    }
+    .prose-custom table {
+        @apply w-full border-collapse my-4;
+    }
+    .prose-custom th {
+        @apply bg-graphite-100 dark:bg-graphite-700 text-graphite-900 dark:text-graphite-50 text-sm p-2 border border-graphite-200 dark:border-graphite-700;
+    }
+    .prose-custom td {
+        @apply bg-white dark:bg-graphite-800 text-graphite-700 dark:text-graphite-200 text-sm p-2 border border-graphite-200 dark:border-graphite-700;
+    }
+    .prose-custom img {
+        @apply max-w-full rounded-lg;
+    }
+}
+
+/* Drawer 애니메이션 */
+
+/* 모바일: 오른쪽에서 슬라이드 인/아웃 */
+@keyframes drawer-slide-in {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes drawer-slide-out {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+/* 데스크톱: width 확장/축소 (왼쪽 콘텐츠가 자연스럽게 밀림/복원) */
+@keyframes drawer-expand {
+    from {
+        width: 0;
+        min-width: 0;
+        border-left-width: 0;
+    }
+}
+@keyframes drawer-collapse {
+    to {
+        width: 0;
+        min-width: 0;
+        border-left-width: 0;
+    }
+}
+
+/* 열기 */
+.animate-drawer-open {
+    animation: drawer-slide-in 300ms ease forwards;
+}
+@media (min-width: 1024px) {
+    .animate-drawer-open {
+        animation: drawer-expand 300ms ease forwards;
+        overflow: hidden;
+    }
+}
+
+/* 닫기 */
+.animate-drawer-close {
+    animation: drawer-slide-out 300ms ease forwards;
+}
+@media (min-width: 1024px) {
+    .animate-drawer-close {
+        animation: drawer-collapse 300ms ease forwards;
+        overflow: hidden;
+    }
 }

@@ -13,8 +13,8 @@ export function PostCard({ post, className }: PostCardProps) {
         <Link
             href={`/posts/${post.slug}`}
             className={cn(
-                "group flex w-full flex-col items-start rounded-lg border border-graphite-200 bg-white dark:border-graphite-800 dark:bg-graphite-900 p-4 text-left transition-all",
-                "hover:border-celadon-500/50 hover:bg-graphite-50 dark:hover:bg-graphite-850",
+                "group flex w-full flex-col items-start rounded-lg border border-graphite-100 bg-white dark:border-graphite-800 dark:bg-graphite-900 p-4 text-left transition-all",
+                "hover:border-celadon-500/50 hover:bg-white/70 dark:hover:bg-graphite-850 dark:hover:border-celadon-500/50 dark:hover:bg-graphite-800/50",
                 "focus:outline-none focus:ring-2 focus:ring-celadon-500/50 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-graphite-950",
                 className
             )}
@@ -23,7 +23,7 @@ export function PostCard({ post, className }: PostCardProps) {
                 <CategoryBadge category={post.category} />
             </div>
 
-            <h3 className="mb-2 line-clamp-2 text-base font-semibold text-graphite-900 dark:text-graphite-50 transition-colors group-hover:text-celadon-400">
+            <h3 className="mb-2 line-clamp-2 text-base font-semibold text-graphite-900 dark:text-graphite-50 transition-colors group-hover:text-celadon-600">
                 {post.title}
             </h3>
 

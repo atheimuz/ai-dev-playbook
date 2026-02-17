@@ -16,7 +16,7 @@ export function BentoCard({ post, isSelected = false, className }: BentoCardProp
             className={cn(
                 "group relative flex min-h-[200px] flex-col justify-between border border-dashed p-6 text-left transition-all",
                 "border-graphite-200 dark:border-graphite-700",
-                "hover:bg-graphite-100 dark:hover:bg-graphite-700",
+                "hover:bg-graphite-50 dark:hover:bg-graphite-800/50",
                 "focus:outline-none focus:ring-2 focus:ring-celadon-500/50 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-graphite-950",
                 isSelected && "border-celadon-500 border-solid",
                 className
@@ -37,10 +37,12 @@ export function BentoCard({ post, isSelected = false, className }: BentoCardProp
             </span>
 
             <div>
-                <h3 className="mb-2 line-clamp-2 text-lg font-semibold text-graphite-900 dark:text-graphite-50 transition-colors group-hover:text-celadon-400">
+                <h3 className="mb-2 line-clamp-2 text-lg font-semibold text-graphite-900 dark:text-graphite-50 transition-colors group-hover:text-celadon-700 dark:group-hover:text-celadon-500">
                     {post.title}
                 </h3>
-                <p className="line-clamp-3 text-sm text-graphite-500 dark:text-graphite-400">{post.description}</p>
+                <p className="line-clamp-3 text-sm text-graphite-500 dark:text-graphite-400">
+                    {post.description}
+                </p>
             </div>
         </Link>
     );

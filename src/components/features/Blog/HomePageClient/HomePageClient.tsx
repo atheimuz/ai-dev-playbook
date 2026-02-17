@@ -36,7 +36,7 @@ export function HomePageClient({ posts }: HomePageClientProps) {
                 <div className="mt-12 text-center">
                     <Link
                         href="/posts"
-                        className="inline-flex items-center gap-2 rounded-lg border border-graphite-200 dark:border-graphite-700 px-6 py-3 text-graphite-700 dark:text-graphite-200 transition-colors hover:border-celadon-500 hover:text-celadon-400"
+                        className="inline-flex items-center gap-2 rounded-lg border border-graphite-200 dark:border-graphite-700 px-6 py-3 text-graphite-700 dark:text-graphite-200 transition-colors hover:border-celadon-600 hover:text-celadon-600 dark:hover:border-celadon-600 dark:hover:text-celadon-600"
                     >
                         모든 글 보기
                         <span aria-hidden="true">

@@ -66,7 +66,7 @@ export function DrawerAnimationWrapper({ children }: { children: React.ReactNode
 
     return (
         <aside
-            className={`fixed inset-0 z-50 flex flex-col border-l border-graphite-200 bg-white dark:border-graphite-800 dark:bg-graphite-900 lg:relative lg:inset-auto lg:z-auto lg:w-[480px] xl:w-[45%] ${animationClass}`}
+            className={`fixed inset-0 z-50 flex flex-col border-l border-graphite-100 bg-white dark:border-graphite-800 dark:bg-graphite-900 lg:relative lg:inset-auto lg:z-auto lg:w-[480px] xl:w-[45%] ${animationClass}`}
         >
             <DrawerProvider onClose={handleClose}>{children}</DrawerProvider>
         </aside>

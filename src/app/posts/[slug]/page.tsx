@@ -78,7 +78,7 @@ export default async function PostPage({ params }: PostPageProps) {
                         )}
                     </header>
 
-                    <div className="border-t border-graphite-200 dark:border-graphite-800 pt-8">
+                    <div className="border-t border-graphite-100 dark:border-graphite-800 pt-8">
                         <MarkdownRenderer content={post.content} />
                     </div>
                 </article>

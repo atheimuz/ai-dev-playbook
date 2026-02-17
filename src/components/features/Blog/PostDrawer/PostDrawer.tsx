@@ -20,11 +20,16 @@ export function PostDrawer({ post }: PostDrawerProps) {
     return (
         <>
             <header className="flex items-center justify-between px-6 py-4">
-                <Button variant="ghost" size="icon" onClick={handleOpenFullPage} title="전체 페이지로 보기">
+                <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={handleOpenFullPage}
+                    title="전체 페이지로 보기"
+                >
                     <Expand className="h-5 w-5" />
                 </Button>
                 <Button variant="ghost" size="icon" onClick={handleClose} title="닫기">
-                    <X className="h-5 w-5" />
+                    <X className="h-7 w-7" />
                 </Button>
             </header>
 
@@ -32,7 +37,7 @@ export function PostDrawer({ post }: PostDrawerProps) {
                 <h2 className="mb-2 text-2xl font-bold text-graphite-900 dark:text-graphite-50">
                     {post.title}
                 </h2>
-                <p className="mb-6 text-graphite-500 dark:text-graphite-400">{post.description}</p>
+                <p className="mb-6 text-graphite-500 dark:text-graphite-300">{post.description}</p>
 
                 {post.tags.length > 0 && (
                     <div className="mb-6 flex flex-wrap gap-2">

@@ -1,0 +1,1 @@
+export { PostListPageClient } from "./PostListPageClient";

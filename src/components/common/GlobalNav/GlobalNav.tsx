@@ -15,7 +15,7 @@ export function GlobalNav() {
     const pathname = usePathname();
 
     return (
-        <header className="sticky top-0 z-50 justify-between border-b border-graphite-200 bg-white/80 backdrop-blur-sm dark:border-graphite-800 dark:bg-graphite-950/80">
+        <header className="sticky top-0 z-50 justify-between border-b border-graphite-100 bg-white/80 backdrop-blur-sm dark:border-graphite-800 dark:bg-graphite-950/80">
             <div className="flex justify-between items-center mx-auto h-16 max-w-7xl  px-4">
                 <nav className="flex items-center gap-10">
                     <Link
@@ -37,9 +37,9 @@ export function GlobalNav() {
                                         <Link
                                             href={href}
                                             className={cn(
-                                                "text-sm font-medium transition-colors hover:text-celadon-400",
+                                                "text-sm font-medium transition-colors hover:text-celadon-400 py-4 px-1",
                                                 isActive
-                                                    ? "text-celadon-500"
+                                                    ? "text-celadon-600 font-bold"
                                                     : "text-graphite-600 dark:text-graphite-400"
                                             )}
                                         >

@@ -7,6 +7,8 @@ import { CategoryBadge, TagBadge, MarkdownRenderer } from "@/components/common";
 import { TableOfContents } from "@/components/features/Blog";
 import { Button } from "@/components/ui/button";
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://ai-dev-playbook.vercel.app";
+
 interface PostPageProps {
     params: Promise<{ slug: string }>;
 }
@@ -32,6 +34,16 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
             title: post.title,
             description: post.description,
             type: "article",
+            url: `${BASE_URL}/posts/${slug}`,
+            publishedTime: new Date(post.date).toISOString(),
+            authors: ["AI Dev Playbook"],
+            tags: post.tags,
+            ...(post.thumbnail && { images: [post.thumbnail] })
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: post.title,
+            description: post.description,
             ...(post.thumbnail && { images: [post.thumbnail] })
         }
     };
@@ -45,8 +57,31 @@ export default async function PostPage({ params }: PostPageProps) {
         notFound();
     }
 
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: post.title,
+        description: post.description,
+        datePublished: new Date(post.date).toISOString(),
+        author: {
+            "@type": "Person",
+            name: "AI Dev Playbook"
+        },
+        publisher: {
+            "@type": "Organization",
+            name: "AI Dev Playbook"
+        },
+        url: `${BASE_URL}/posts/${slug}`,
+        keywords: post.tags,
+        ...(post.thumbnail && { image: post.thumbnail })
+    };
+
     return (
         <div className="mx-auto max-w-7xl px-4 py-8 lg:px-8">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <div className="relative lg:grid lg:grid-cols-[1fr_220px] lg:gap-10 xl:grid-cols-[1fr_250px]">
                 <article className="overflow-hidden">
                     <Button asChild variant="ghost" className="mb-4">

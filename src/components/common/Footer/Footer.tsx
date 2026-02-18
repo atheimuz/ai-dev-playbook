@@ -12,7 +12,7 @@ export function Footer() {
 
                     <div className="flex items-center gap-4">
                         <a
-                            href="https://github.com"
+                            href="https://github.com/atheimuz/ai-dev-playbook"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-graphite-500 dark:text-graphite-400 transition-colors hover:text-celadon-400 dark:hover:text-celadon-400"

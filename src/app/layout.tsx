@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { GlobalNav, Footer } from "@/components/common";
 import { DrawerAnimationWrapper } from "@/components/features/Blog/PostDrawer/DrawerAnimationWrapper";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import "highlight.js/styles/github-dark-dimmed.css";
 
@@ -54,6 +55,7 @@ export default function RootLayout({
                         <DrawerAnimationWrapper>{drawer}</DrawerAnimationWrapper>
                     </div>
                 </ThemeProvider>
+                <Analytics />
             </body>
         </html>
     );

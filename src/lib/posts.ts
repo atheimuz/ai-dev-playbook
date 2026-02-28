@@ -8,6 +8,7 @@ import remarkBreaks from "remark-breaks";
 import remarkRehype from "remark-rehype";
 import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
+import rehypeExternalLinks from "rehype-external-links";
 import rehypeStringify from "rehype-stringify";
 import type { Post, PostMeta } from "@/types/post";
 
@@ -79,6 +80,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     .use(remarkBreaks)
     .use(remarkRehype)
     .use(rehypeSlug)
+    .use(rehypeExternalLinks, { target: "_blank", rel: ["noopener", "noreferrer"] })
     .use(rehypeHighlight)
     .use(rehypeStringify)
     .process(rawContent);

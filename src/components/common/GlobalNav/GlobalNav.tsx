@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Bot } from "lucide-react";
@@ -11,8 +12,19 @@ const NAV_ITEMS = [
     { href: "/posts", label: "포스팅" }
 ] as const;
 
+function isPostDetailRoute(path: string) {
+    return /^\/posts\/.+$/.test(path);
+}
+
 export function GlobalNav() {
     const pathname = usePathname();
+    const [activePath, setActivePath] = useState(pathname);
+
+    useEffect(() => {
+        if (!isPostDetailRoute(pathname)) {
+            setActivePath(pathname);
+        }
+    }, [pathname]);
 
     return (
         <header className="sticky top-0 z-50 justify-between border-b border-graphite-100 bg-white/80 backdrop-blur-sm dark:border-graphite-800 dark:bg-graphite-950/80">
@@ -30,7 +42,7 @@ export function GlobalNav() {
                         <ul className="flex items-center gap-6">
                             {NAV_ITEMS.map(({ href, label }) => {
                                 const isActive =
-                                    href === "/" ? pathname === "/" : pathname.startsWith(href);
+                                    href === "/" ? activePath === "/" : activePath.startsWith(href);
 
                                 return (
                                     <li key={href}>

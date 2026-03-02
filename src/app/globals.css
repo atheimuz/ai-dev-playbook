@@ -197,7 +197,7 @@
         @apply text-sm text-celadon-600 bg-graphite-50 dark:bg-graphite-800 rounded px-1.5 py-0.5 font-mono;
     }
     .prose-custom pre {
-        @apply bg-graphite-50 dark:bg-graphite-900 rounded-lg p-4 overflow-x-auto my-4;
+        @apply bg-graphite-50 dark:bg-graphite-800 rounded-lg p-4 overflow-x-auto my-4;
     }
     .prose-custom pre code {
         @apply text-sm text-graphite-600 dark:text-graphite-200 font-mono;

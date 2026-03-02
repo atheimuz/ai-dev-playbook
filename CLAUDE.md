@@ -20,7 +20,8 @@ Next.js App Router 기반 정적 블로그.
 
 - 포스트: `content/posts/*.md` (frontmatter: title, description, category, tags, date, slug)
 - 데이터 로드: `src/lib/posts.ts` -- getAllPostMetas(), getPostBySlug(), getLatestPosts()
-- 카테고리: "설정" | "문제해결" | "개선" | "팁" (`src/types/post.ts`의 CATEGORIES)
+- 카테고리: "설정" | "문제해결" | "활용" | "학습" (`src/types/post.ts`의 CATEGORIES)
+- 표준 태그: command, skill, sub-agent, CLAUDE.md, 워크플로우, 자동화, 협업, 설정, 패턴, 활용팁 (이 목록에서만 선택, 새 태그 추가 시 2개+ 포스트에 적용 가능한지 확인)
 
 ### 컴포넌트
 
@@ -37,7 +38,3 @@ Next.js App Router 기반 정적 블로그.
 ## 개발 명령어
 
 - `npm run dev` / `npm run build` / `npm run lint`
-
-## 코딩 컨벤션
-
-React/TypeScript 코드 작성 시 `~/.claude/skills/react-conventions/skill.md` 규칙을 따를 것.

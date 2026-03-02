@@ -1,14 +1,16 @@
 import Link from "next/link";
 import { CategoryBadge, TagBadge } from "@/components/common";
 import type { PostMeta } from "@/types/post";
-import { cn } from "@/lib/utils";
+import { cn, formatDateYM } from "@/lib/utils";
 
 interface PostCardProps {
     post: PostMeta;
     className?: string;
+    selectedTag?: string | null;
+    onTagClick?: (tag: string) => void;
 }
 
-export function PostCard({ post, className }: PostCardProps) {
+export function PostCard({ post, className, selectedTag, onTagClick }: PostCardProps) {
     return (
         <Link
             href={`/posts/${post.slug}`}
@@ -21,6 +23,9 @@ export function PostCard({ post, className }: PostCardProps) {
         >
             <div className="mb-3 flex items-center gap-2">
                 <CategoryBadge category={post.category} />
+                <span className="text-xs text-graphite-400 dark:text-graphite-500">
+                    {formatDateYM(post.date)}
+                </span>
             </div>
 
             <h3 className="mb-2 line-clamp-2 text-base font-semibold text-graphite-900 dark:text-graphite-50 transition-colors group-hover:text-celadon-600">
@@ -34,7 +39,12 @@ export function PostCard({ post, className }: PostCardProps) {
             {post.tags.length > 0 && (
                 <div className="flex flex-wrap gap-1.5 items-center">
                     {post.tags.slice(0, 3).map((tag) => (
-                        <TagBadge key={tag} tag={tag} />
+                        <TagBadge
+                            key={tag}
+                            tag={tag}
+                            isActive={selectedTag === tag}
+                            onClick={onTagClick ? () => onTagClick(tag) : undefined}
+                        />
                     ))}
                     {post.tags.length > 3 && (
                         <span className="text-xs text-graphite-400 dark:text-graphite-500">

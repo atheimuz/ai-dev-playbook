@@ -10,9 +10,17 @@ interface TagBadgeProps {
 export function TagBadge({ tag, isActive = false, onClick, className }: TagBadgeProps) {
     const Component = onClick ? "button" : "span";
 
+    const handleClick = onClick
+        ? (e: React.MouseEvent) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onClick();
+          }
+        : undefined;
+
     return (
         <Component
-            onClick={onClick}
+            onClick={handleClick}
             className={cn(
                 "inline-flex items-center rounded-md px-2 py-1 text-xs font-medium transition-colors",
                 isActive

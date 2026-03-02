@@ -6,6 +6,7 @@ import type { PostMeta, Category } from "@/types/post";
 interface UseFilterPostsProps {
   posts: PostMeta[];
   initialPageSize?: number;
+  initialTag?: string | null;
 }
 
 interface UseFilterPostsReturn {
@@ -25,12 +26,13 @@ interface UseFilterPostsReturn {
 export function useFilterPosts({
   posts,
   initialPageSize = 9,
+  initialTag = null,
 }: UseFilterPostsProps): UseFilterPostsReturn {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(
     null
   );
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [selectedTag, setSelectedTag] = useState<string | null>(initialTag);
   const [displayCount, setDisplayCount] = useState(initialPageSize);
 
   const filteredPosts = useMemo(() => {

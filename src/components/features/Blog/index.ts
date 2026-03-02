@@ -6,4 +6,5 @@ export { HomePageClient } from "./HomePageClient";
 export { SearchBar } from "./SearchBar";
 export { CategoryFilter } from "./CategoryFilter";
 export { PostCard } from "./PostCard";
+export { TagFilter } from "./TagFilter";
 export { PostListPageClient } from "./PostListPageClient";

@@ -1,9 +1,11 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { Expand, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TagBadge, MarkdownRenderer } from "@/components/common";
 import { useDrawer } from "./DrawerContext";
+import { formatDateYM } from "@/lib/utils";
 import type { Post } from "@/types/post";
 
 interface PostDrawerProps {
@@ -12,9 +14,15 @@ interface PostDrawerProps {
 
 export function PostDrawer({ post }: PostDrawerProps) {
     const { handleClose } = useDrawer();
+    const router = useRouter();
 
     const handleOpenFullPage = () => {
         window.location.href = `/posts/${post.slug}`;
+    };
+
+    const handleTagClick = (tag: string) => {
+        handleClose();
+        router.push(`/posts?tag=${encodeURIComponent(tag)}`);
     };
 
     return (
@@ -37,12 +45,15 @@ export function PostDrawer({ post }: PostDrawerProps) {
                 <h2 className="mb-2 text-2xl font-bold text-graphite-900 dark:text-graphite-50">
                     {post.title}
                 </h2>
-                <p className="mb-6 text-graphite-500 dark:text-graphite-300">{post.description}</p>
+                <p className="mb-4 text-graphite-500 dark:text-graphite-300">{post.description}</p>
+                <time className="mb-6 block text-sm text-graphite-400 dark:text-graphite-500">
+                    {formatDateYM(post.date)}
+                </time>
 
                 {post.tags.length > 0 && (
                     <div className="mb-6 flex flex-wrap gap-2">
                         {post.tags.map((tag) => (
-                            <TagBadge key={tag} tag={tag} />
+                            <TagBadge key={tag} tag={tag} onClick={() => handleTagClick(tag)} />
                         ))}
                     </div>
                 )}

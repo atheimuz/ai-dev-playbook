@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { getAllPostMetas } from "@/lib/posts";
 import { PostListPageClient } from "@/components/features/Blog";
 
@@ -9,6 +10,13 @@ export const metadata: Metadata = {
 
 export default function PostsPage() {
   const posts = getAllPostMetas();
+  const allTags = Array.from(new Set(posts.flatMap((p) => p.tags))).sort((a, b) =>
+    a.localeCompare(b, "ko")
+  );
 
-  return <PostListPageClient posts={posts} />;
+  return (
+    <Suspense>
+      <PostListPageClient posts={posts} allTags={allTags} />
+    </Suspense>
+  );
 }

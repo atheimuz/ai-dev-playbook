@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { getPostBySlug, getAllSlugs } from "@/lib/posts";
+import { formatDateYM } from "@/lib/utils";
 import { CategoryBadge, TagBadge, MarkdownRenderer } from "@/components/common";
 import { TableOfContents } from "@/components/features/Blog";
 import { Button } from "@/components/ui/button";
@@ -92,8 +93,11 @@ export default async function PostPage({ params }: PostPageProps) {
                     </Button>
 
                     <header className="mb-8">
-                        <div className="mb-4">
+                        <div className="mb-4 flex items-center gap-2">
                             <CategoryBadge category={post.category} />
+                            <time className="text-sm text-graphite-400 dark:text-graphite-500">
+                                {formatDateYM(post.date)}
+                            </time>
                         </div>
 
                         <h1 className="mb-4 text-3xl font-bold text-graphite-900 dark:text-graphite-50 lg:text-4xl">
@@ -107,7 +111,9 @@ export default async function PostPage({ params }: PostPageProps) {
                         {post.tags.length > 0 && (
                             <div className="flex flex-wrap gap-2">
                                 {post.tags.map((tag) => (
-                                    <TagBadge key={tag} tag={tag} />
+                                    <Link key={tag} href={`/posts?tag=${encodeURIComponent(tag)}`}>
+                                        <TagBadge tag={tag} className="hover:bg-graphite-200 dark:hover:bg-graphite-700 transition-colors" />
+                                    </Link>
                                 ))}
                             </div>
                         )}

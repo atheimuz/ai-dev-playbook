@@ -1,8 +1,8 @@
 ---
 title: "Agent, Skill, Command의 역할과 마이그레이션 기준"
 description: "Agent·Skill·Command 분류 체계, 트리거 방식 기준, 마이그레이션 경로"
-category: "팁"
-tags: ["claude-code", "skill", "agent", "command", "taxonomy", "migration"]
+category: "활용"
+tags: ["skill", "command", "sub-agent"]
 date: "2026-02-28"
 ---
 

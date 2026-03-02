@@ -2,7 +2,7 @@
 title: "allowed-tools의 실제 동작 — AskUserQuestion 버그와 자동 승인 메커니즘"
 description: "allowed-tools에 AskUserQuestion을 넣으면 UI가 렌더링되지 않고 '.'이 반환되는 버그. 화이트리스트가 아니라 auto-approve 목록이라는 사실을 두 세션의 디버깅으로 밝혀낸 기록."
 category: "문제해결"
-tags: ["claude-code", "allowed-tools", "AskUserQuestion", "command", "auto-approve", "bug"]
+tags: ["command", "설정"]
 date: "2026-02-28"
 ---
 

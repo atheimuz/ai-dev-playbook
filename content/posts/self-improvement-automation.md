@@ -1,9 +1,9 @@
 ---
 title: "셀프 개선 & 자동화 시스템 — 회고 루프부터 자동화 후보 탐지까지"
 description: "/retrospective로 CLAUDE.md를 자동 개선하는 회고 루프, 2-failure 규칙, PreToolUse 훅, 자동화 방식 비교"
-category: "개선"
-tags: ["claude-code", "회고", "자동화", "CLAUDE.md", "훅", "셀프개선"]
-date: "2026-02-17"
+category: "활용"
+tags: ["CLAUDE.md", "자동화"]
+date: "2026-02-05"
 ---
 
 Claude Code를 잘 쓰려면 도구 자체를 계속 개선해야 한다는 걸 뒤늦게 깨달았다.

@@ -1,8 +1,8 @@
 ---
 title: "Claude Code 팀 협업 가이드 — MEMORY.md 함정부터 .claude/rules 전환까지"
 description: "하위 CLAUDE.md의 로딩 한계를 발견하고, .claude/rules로 전환하여 팀 컨벤션 공유 문제를 해결한 과정을 정리했다."
-category: "팁"
-tags: ["claude-code", "팀협업", "CLAUDE.md", "rules", "컨벤션", "공유"]
+category: "문제해결"
+tags: ["CLAUDE.md", "협업", "설정"]
 date: "2026-02-17"
 ---
 

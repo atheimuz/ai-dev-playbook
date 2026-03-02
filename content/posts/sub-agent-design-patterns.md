@@ -1,8 +1,8 @@
 ---
 title: "서브에이전트 설계 패턴"
 description: "모델 배분 전략, 병렬/순차 실행, test-consolidator 활용"
-category: "팁"
-tags: ["claude-code", "서브에이전트", "병렬처리", "모델배분", "패턴"]
+category: "활용"
+tags: ["sub-agent", "패턴"]
 date: "2026-02-17"
 ---
 

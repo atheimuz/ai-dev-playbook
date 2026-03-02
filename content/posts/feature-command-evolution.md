@@ -1,8 +1,8 @@
 ---
 title: "/feature 커맨드 개선기 — 5번의 리팩토링으로 배운 것들"
 description: "4단계 병렬 실행에서 9단계 순차 파이프라인까지, /feature 커맨드의 설계 결정과 실패 기록"
-category: "개선"
-tags: ["claude-code", "커맨드", "워크플로우", "에이전트", "파이프라인"]
+category: "활용"
+tags: ["command", "워크플로우", "패턴"]
 date: "2026-02-17"
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: "직접 만든 커스텀 스킬 & 커맨드 5종 — 실전 사례집"
 description: "세션 분석, 회고, granular commit, 시퀀스 다이어그램, 버그 수정 파이프라인까지"
-category: "개선"
-tags: ["claude-code", "스킬", "커맨드", "커스텀", "자동화", "워크플로우"]
+category: "활용"
+tags: ["skill", "자동화", "워크플로우"]
 date: "2026-02-17"
 ---
 
